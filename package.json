@@ -1,13 +1,16 @@
 {
-  "name": "vmq",
+  "name": "vue-simple-media",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "webpack-serve",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack -p --config webpack.prod.js"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "vue": "^2.5.16"
+  },
+  "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-vue-app": "^2.0.0",
@@ -19,6 +22,13 @@
     "webpack-serve": "^1.0.2"
   },
   "babel": {
+    "env": {
+      "production": {
+        "presets": [
+          [ "env", { "modules": false } ]
+        ]
+      }
+    },
     "presets": [
       "vue-app"
     ]
