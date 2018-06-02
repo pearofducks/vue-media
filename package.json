@@ -1,0 +1,25 @@
+{
+  "name": "vmq",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack-serve --config ./webpack.config.js"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-vue-app": "^2.0.0",
+    "vue": "^2.5.16",
+    "vue-loader": "^15.2.4",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^2.1.5",
+    "webpack-serve": "^1.0.2"
+  },
+  "babel": {
+    "presets": [
+      "vue-app"
+    ]
+  }
+}
