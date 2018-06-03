@@ -1,11 +1,15 @@
 let _ = Object.create(null)
 
 function breakpoint (el, binding, vnode) {
-  const specificMedia = binding.arg
-  if ((specificMedia && vnode.context.$media[specificMedia]) || !specificMedia) binding.value(el)
+  binding.value(el, vnode.context.$media.current)
 }
 
-export function install (Vue, options) {
+const defaultBreakpoints = {
+  mobile: 'screen and (max-width: 768px)',
+  desktop: 'screen and (min-width: 768px)'
+}
+
+export function install (Vue, options = defaultBreakpoints) {
   Vue.util.defineReactive(_, 'current', null)
   Object.keys(options).forEach(media => {
     Vue.util.defineReactive(_, media, null)

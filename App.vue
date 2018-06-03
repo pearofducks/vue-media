@@ -1,5 +1,5 @@
 <template>
-  <h1>Hello, this layout is <br/>
+  <h1 v-breakpoint="mediaChangeCallback">Hello, this layout is <br/>
     mobile: {{$media.mobile}}<br/>
     desktop: {{$media.desktop}}<br/>
     current: {{$media.current}}
@@ -10,10 +10,15 @@
 export default {
   name: 'app',
   methods: {
-    mediaCallback(el) {
-      console.log("NOW ON DESKTOP?", this.$media.isDesktop)
-      console.log("GOT EL", el)
-    }
+    mediaChangeCallback(el, currentMedia) {
+      if (currentMedia.includes('desktop')) {
+        el.style.color = 'red'
+        el.style.opacity = '0.8'
+      } else {
+        el.style.color = 'blue'
+        el.style.opacity = '0.5'
+      }
+    },
   },
 }
 </script>
