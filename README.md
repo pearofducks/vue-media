@@ -24,6 +24,10 @@ Keys used will then be available on the _$media_ object.
 - `this.$media.current` - provides an **array** of the currently matched media
 - `this.$media.KEY` - provides a **boolean** of whether this specified media is currently matched
 
+Example:
+
+`if (this.$media.desktop) // do stuff`
+
 #### v-breakpoint directive
 
 The function provided to the directive is called whenever media changes are detected.
