@@ -36,8 +36,8 @@ Example:
 
 ```javascript
 mediaChangeCallback(element, currentMediaList) {
-	if (currentMediaList.includes('desktop')) {
-		element.style.color = 'red'
-	}
+  if (currentMediaList.includes('desktop')) {
+    element.style.color = 'red'
+  }
 }
 ```
