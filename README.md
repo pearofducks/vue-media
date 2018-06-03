@@ -6,6 +6,8 @@ an alternative to other mediaMatch plugins with a focus on simplicity and being 
 
 #### install
 
+`npm install vue-simple-media`
+
 `Vue.use(media)` will use the default breakpoints (shown below)
 
 To specify your own media queries:
