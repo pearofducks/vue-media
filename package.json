@@ -1,6 +1,6 @@
 {
   "name": "vue-simple-media",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -25,7 +25,12 @@
     "env": {
       "production": {
         "presets": [
-          [ "env", { "modules": false } ]
+          [
+            "env",
+            {
+              "modules": false
+            }
+          ]
         ]
       }
     },
