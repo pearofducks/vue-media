@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/primer/build/build.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <title>VueSimpleMedia</title>
+  </head>
+  <body>
+    <main class="mx-3 mt-2">
+      <h1 class="f1-light">VueSimpleMedia</h1>
+      <div id="app" class="mt-4">
+        <h1 v-breakpoint="mediaChangeCallback">Hello, this layout is:
+          <span class="Label Label--orange" v-if="$media.mobile">mobile</span>
+          <span class="Label bg-blue" v-else-if="$media.desktop">desktop</span>
+        </h1>
+        <p class="mt-3">Current media array: <pre><code>{{$media.current}}</code></pre></p>
+      </div>
+    </main>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="../dist/index.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          mediaChangeCallback(el, currentMedia) {
+            if (currentMedia.includes('desktop')) {
+              el.style.fontSize = '24px'
+            } else {
+              el.style.fontSize = '14px'
+            }
+          },
+        }
+      })
+    </script>
+  </body>
+</html>

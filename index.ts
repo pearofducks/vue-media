@@ -1,3 +1,5 @@
+const VueSimpleMedia: any = {}
+
 let _ = Object.create(null)
 
 function breakpoint (el, binding, vnode) {
@@ -6,10 +8,10 @@ function breakpoint (el, binding, vnode) {
 
 const defaultBreakpoints = {
   mobile: 'screen and (max-width: 768px)',
-  desktop: 'screen and (min-width: 768px)'
+  desktop: 'screen and (min-width: 769px)'
 }
 
-export function install (Vue, options = defaultBreakpoints) {
+VueSimpleMedia.install = function (Vue, options = defaultBreakpoints) {
   Vue.util.defineReactive(_, 'current', null)
   Object.keys(options).forEach(media => {
     Vue.util.defineReactive(_, media, null)
@@ -30,4 +32,9 @@ export function install (Vue, options = defaultBreakpoints) {
 }
 
 
-export default { install }
+
+if (typeof window !== 'undefined' && (<any>window).Vue) {
+  (<any>window).Vue.use(VueSimpleMedia)
+}
+
+export default VueSimpleMedia
