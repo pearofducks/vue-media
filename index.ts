@@ -12,10 +12,14 @@ const defaultBreakpoints = {
 }
 
 VueSimpleMedia.install = function (Vue, options = defaultBreakpoints) {
-  Vue.util.defineReactive(_, 'current', null)
-  Object.keys(options).forEach(media => {
-    Vue.util.defineReactive(_, media, null)
-    const query = window.matchMedia(options[media])
+  let bps = (<any>window).breakpoints || options
+
+  _ = Vue.observable({
+    current: null,
+    ...Object.keys(bps).reduce((acc,e) => (acc[e] = null, acc), {})
+  })
+  Object.keys(bps).forEach(media => {
+    const query = window.matchMedia(bps[media])
     const callback = (e) => {
       _[media] = e.matches
       _.current = Object.keys(_).filter(e => e !== 'current' && _[e])
@@ -25,13 +29,11 @@ VueSimpleMedia.install = function (Vue, options = defaultBreakpoints) {
   })
 
   Object.defineProperty(Vue.prototype, '$media', {
-    get () { return _ }
+    get: () => _
   })
 
   Vue.directive('breakpoint', breakpoint)
 }
-
-
 
 if (typeof window !== 'undefined' && (<any>window).Vue) {
   (<any>window).Vue.use(VueSimpleMedia)

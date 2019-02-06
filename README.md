@@ -6,6 +6,8 @@ an alternative to other mediaMatch plugins with a focus on simplicity and being 
 
 #### install
 
+This plugin requires Vue 2.6 or greater.
+
 `npm install vue-simple-media`
 
 `Vue.use(media)` will use the default breakpoints (shown below)
@@ -18,6 +20,8 @@ Vue.use(media, {
   desktop: 'screen and (min-width: 768px)'
 })
 ```
+
+Note: if sourcing this plugin from a browser script tag, put breakpoints on `window.breakpoints` before this plugin loads
 
 Keys used will then be available on the _$media_ object.
 

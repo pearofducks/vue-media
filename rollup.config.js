@@ -15,6 +15,6 @@ export default [
 {
 	input,
 	output: { file: pkg.module, format: 'es', sourcemap },
-	plugins: [ typescript(), sourceMaps() ]
+	plugins: [ typescript({ target: 'es5' }), sourceMaps() ]
 }
 ]
