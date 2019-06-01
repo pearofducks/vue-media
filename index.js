@@ -1,4 +1,4 @@
-const VueSimpleMedia: any = {}
+const VueSimpleMedia = {}
 
 let _ = Object.create(null)
 
@@ -12,7 +12,7 @@ const defaultBreakpoints = {
 }
 
 VueSimpleMedia.install = function (Vue, options = defaultBreakpoints) {
-  let bps = (<any>window).breakpoints || options
+  let bps = window.breakpoints || options
 
   _ = Vue.observable({
     current: null,
@@ -35,8 +35,8 @@ VueSimpleMedia.install = function (Vue, options = defaultBreakpoints) {
   Vue.directive('breakpoint', breakpoint)
 }
 
-if (typeof window !== 'undefined' && (<any>window).Vue) {
-  (<any>window).Vue.use(VueSimpleMedia)
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(VueSimpleMedia)
 }
 
 export default VueSimpleMedia
