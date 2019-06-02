@@ -1,6 +1,6 @@
 > vue-simple-media
 
-an alternative to other mediaMatch plugins with a focus on simplicity and being lightweight
+an alternative to other mediaMatch plugins with a focus on simplicity and minimal module size (less than 1kb minified)
 
 # use
 
