@@ -14,6 +14,7 @@ export default [
   },
   {
     input,
-    output: { file: pkg.module, format: 'es' }
+    output: { file: pkg.module, format: 'es' },
+    plugins: [ buble({ objectAssign: 'Object.assign' }), sourceMaps() ]
   }
 ]
