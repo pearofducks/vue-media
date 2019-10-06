@@ -40,3 +40,4 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default VueSimpleMedia
+export { _ as useMedia }

@@ -6,15 +6,11 @@ const libraryName = 'VueSimpleMedia'
 const input = 'index.js'
 const sourcemap = true
 
-export default [
-  {
-    input,
-    output: { file: pkg.main, name: libraryName, format: 'umd', sourcemap },
-    plugins: [ buble({ objectAssign: 'Object.assign' }), sourceMaps() ]
-  },
-  {
-    input,
-    output: { file: pkg.module, format: 'es' },
-    plugins: [ buble({ objectAssign: 'Object.assign' }), sourceMaps() ]
-  }
-]
+export default {
+  input,
+  output: [
+    { file: pkg.main, name: libraryName, format: 'umd', sourcemap },
+    { file: pkg.module, format: 'es', sourcemap },
+  ],
+  plugins: [ buble({ objectAssign: 'Object.assign' }), sourceMaps() ]
+}
