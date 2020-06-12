@@ -6,4 +6,5 @@ export default {
   output: [
     { file: pkg.module, format: 'es' },
   ],
+  external: ['vue']
 }
