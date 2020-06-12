@@ -35,7 +35,7 @@ VueSimpleMedia.install = function (Vue, options = defaultBreakpoints) {
   Vue.directive('breakpoint', breakpoint)
 }
 
-if (typeof window !== 'undefined' && window.Vue) {
+if (typeof window !== 'undefined' && window.Vue && window.Vue.use) {
   window.Vue.use(VueSimpleMedia)
 }
 
