@@ -1,20 +1,20 @@
-const VueSimpleMedia = {}
+import { reactive } from 'vue'
 
 let _ = Object.create(null)
 
-function breakpoint (el, binding, vnode) {
-  binding.value(el, vnode.context.$media.current)
-}
+// function breakpoint (el, binding, vnode) {
+//   binding.value(el, vnode.context.$media.current)
+// }
 
 const defaultBreakpoints = {
   mobile: 'screen and (max-width: 768px)',
   desktop: 'screen and (min-width: 769px)'
 }
 
-VueSimpleMedia.install = function (Vue, options = defaultBreakpoints) {
-  let bps = window.breakpoints || options
+function setup (options = defaultBreakpoints) {
+  let bps = options
 
-  _ = Vue.observable({
+  _ = reactive({
     current: null,
     ...Object.keys(bps).reduce((acc,e) => (acc[e] = null, acc), {})
   })
@@ -28,16 +28,7 @@ VueSimpleMedia.install = function (Vue, options = defaultBreakpoints) {
     callback(query)
   })
 
-  Object.defineProperty(Vue.prototype, '$media', {
-    get: () => _
-  })
-
-  Vue.directive('breakpoint', breakpoint)
+  // Vue.directive('breakpoint', breakpoint)
 }
 
-if (typeof window !== 'undefined' && window.Vue && window.Vue.use) {
-  window.Vue.use(VueSimpleMedia)
-}
-
-export default VueSimpleMedia
-export { _ as useMedia }
+export { _ as useMedia, setup }
